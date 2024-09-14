@@ -1,52 +1,8 @@
-# Event Management System
+# React + Vite
 
-This is an Event Management System built using the MERN stack. The application allows users to create, manage, and RSVP to events, while providing features like reminders, notifications, and attendee management.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Problem Solved
+Currently, two official plugins are available:
 
-The system streamlines the process of organizing events, allowing users to:
-- Create, read, update, and delete events.
-- RSVP to events and manage attendees.
-- Schedule and receive reminders via email.
-- Track user activity and interactions with the system.
-
-## Tech Stack
-
-- **MongoDB**: Database for storing event and user information.
-- **Express.js**: Backend framework for handling API requests.
-- **React.js**: Frontend library for building the user interface.
-- **Node.js**: Server-side environment to handle backend operations.
-
-### Additional Tools
-- **Nodemailer**: For sending email notifications/reminders.
-- **Mongoose**: For database interactions with MongoDB.
-
-## Database Design
-
-### Key Collections:
-- **Users**: Stores user details and activity logs.
-- **Events**: Stores event details, attendee lists, and reminder schedules.
-
-### Relationships:
-- Users can RSVP to multiple events.
-- Events are linked to their creators and attendees.
-
-## How to Run the Project
-
-1. **Clone the repository**:
-   ```bash
-   git clone <repository-url>
-   cd event-management-system
-   ```
-
-2. **Install dependencies in root directory and Backend directory**:
-   ```bash
-   npm install
-   ```
-
-3. **Start the application**:
-   ```bash
-   npm run both
-   ```
-
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh

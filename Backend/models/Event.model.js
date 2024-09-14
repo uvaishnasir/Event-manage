@@ -12,21 +12,23 @@ const eventSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now,
+    required: true,
   },
   location: {
     type: String,
+    required: true,
   },
-  reminders: [Date], // Dates when reminders should be sent
+  reminders: [Date],      // Dates when reminders should be sent.
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
   attendees: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
     },
   ],
-  createdBy: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
-  },
 });
 
 module.exports = mongoose.model("events", eventSchema);
