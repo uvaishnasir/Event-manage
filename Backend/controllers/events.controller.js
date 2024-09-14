@@ -1,4 +1,4 @@
-const Notes = require("../models/Notes.js");
+const Notes = require("../models/Event.model.js");
 const { validationResult } = require("express-validator");
 
 const getEvents = async (req, res) => {
