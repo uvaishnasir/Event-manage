@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 const { validationResult } = require("express-validator");
 const User = require("../models/User");
 
-
 const createUser = async (req, res) => {
   let success = false;
   const errors = validationResult(req); //if errors-> return bad request.
@@ -35,7 +34,7 @@ const createUser = async (req, res) => {
     };
     const authToken = jwt.sign(data, "IamTHE$007");
     success = true;
-    res.json({ success, authToken });
+    res.json({ success, authToken, message: "Created User Successfully." });
   } catch (e) {
     console.error(e.message);
     res.status(500).send("Internal Server Error");
@@ -72,7 +71,7 @@ const loginUser = async (req, res) => {
     };
     const authToken = jwt.sign(data, "IamTHE$007");
     success = true;
-    res.json({ success, authToken });
+    res.json({ success, authToken, message: "Logged in Successfully." });
   } catch (e) {
     console.error(e.message);
     res.status(500).send("Internal Server Error");

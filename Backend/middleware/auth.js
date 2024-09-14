@@ -14,6 +14,7 @@ const auth = (req, res, next) => {
   } catch (error) {
     res.status(401).send({ error: "Please Authenticate with a valid Token" });
   }
+  next();
 };
 
 module.exports = { auth };

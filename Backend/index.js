@@ -1,6 +1,6 @@
 const express = require("express");
 const Auth = require("./routes/auth.routes.js");
-const Notes = require("./routes/notes.routes.js");
+const Notes = require("./routes/events.routes.js");
 const cors = require("cors");
 const connectDB = require("./DB.js");
 
