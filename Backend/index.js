@@ -1,6 +1,6 @@
 const express = require("express");
 const Auth = require("./routes/auth.routes.js");
-const Notes = require("./routes/events.routes.js");
+const Events = require("./routes/events.routes.js");
 const cors = require("cors");
 const connectDB = require("./DB.js");
 
@@ -21,9 +21,9 @@ connectDB()
     process.exit(1);
   });
 
-
 // declaration of routes.
 app.use("/api/auth", Auth);
-app.use("/api/notes", Notes);
+app.use("/api/events", Events);
 
 //http://localhost:8000/api/auth
+//http://localhost:8000/api/events
