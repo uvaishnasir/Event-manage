@@ -19,21 +19,21 @@ const createUser = async (req, res) => {
 
     user = await User.create({ name, email, password: securedPass });
 
-    const data = {
-      user: {
-        id: user.id,
-      },
-    };
-    const authToken = jwt.sign(data, "IamTHE$007");
+    // const data = {
+    //   user: {
+    //     id: user.id,
+    //   },
+    // };
+    // const authToken = jwt.sign(data, "IamTHE$007");
 
-    res.json({
+    return res.json({
       success: true,
-      authToken,
-      message: "Created User Successfully.",
+      // authToken,
+      message: "User created Successfully.",
     });
   } catch (e) {
     console.error(e.message);
-    res.status(500).send("Internal Server Error");
+    return res.status(500).send("Internal Server Error");
   }
 };
 
@@ -48,6 +48,8 @@ const loginUser = async (req, res) => {
         .json({ success, error: "Please login with correct credentials" });
     }
     const passCompare = await bcrypt.compare(password, user.password);
+    console.log(passCompare);
+
     if (!passCompare) {
       success = false;
       return res
@@ -60,11 +62,14 @@ const loginUser = async (req, res) => {
       },
     };
     const authToken = jwt.sign(data, "IamTHE$007");
-    success = true;
-    res.json({ success, authToken, message: "Logged in Successfully." });
+    return res.json({
+      success: true,
+      authToken,
+      message: "Logged in Successfully.",
+    });
   } catch (e) {
     console.error(e.message);
-    res.status(500).send("Internal Server Error");
+    return res.status(500).send("Internal Server Error");
   }
 };
 
